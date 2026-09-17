@@ -51,6 +51,7 @@
     padding-inline:22px;
     -webkit-font-smoothing:antialiased;
     position:relative;
+    overflow-x:hidden;
   }
   body::before{
     content:"";
@@ -144,7 +145,10 @@
   .num-anim{font-variant-numeric:tabular-nums;}
 
   /* ---------- hero ---------- */
-  section.hero{padding-block:72px 0; position:relative; overflow:hidden;}
+  section.hero{
+    padding-block:72px 0; position:relative; overflow:hidden;
+    width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  }
   .ring-deco{
     position:absolute; right:-220px; top:-120px; width:640px; height:640px;
     pointer-events:none; z-index:0;
@@ -163,7 +167,7 @@
       linear-gradient(180deg, rgba(10,10,9,0.12) 0%, rgba(10,10,9,0.3) 38%, rgba(10,10,9,0.92) 100%),
       linear-gradient(90deg, rgba(10,10,9,0.5) 0%, rgba(10,10,9,0) 45%);
   }
-  .hero-inner{position:relative; z-index:1;}
+  .hero-inner{position:relative; z-index:1; max-width:1140px; margin-inline:auto; padding-inline:22px;}
   .hero h1{
     font-size:clamp(44px,8vw,108px);
     line-height:1.08;
@@ -201,7 +205,9 @@
   /* ---------- scoreboard ---------- */
   .scoreboard{
     display:grid; grid-template-columns:repeat(4,1fr);
+    max-width:1140px; margin-inline:auto; padding-inline:22px;
     margin-top:56px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    position:relative; z-index:1;
   }
   .score-cell{
     padding:30px 14px; text-align:center;
@@ -218,6 +224,8 @@
   }
   .score-note{
     text-align:center; font-size:11.5px; color:var(--ink-dim); margin-top:14px; padding-bottom:60px;
+    max-width:1140px; margin-inline:auto; padding-inline:22px;
+    position:relative; z-index:1;
   }
   .score-note a{color:var(--lime); text-decoration:underline;}
 
@@ -389,7 +397,8 @@
 
   @media (max-width:860px){
     section.hero{min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center;}
-    .hero-photo img{object-position:50% 22%;}
+    .hero-photo{top:0; left:0; right:0; bottom:auto; height:100vh; height:100svh;}
+    .hero-photo img{object-position:50% 12%; object-fit:cover; width:100%; height:100%;}
     nav.links{display:none;}
     .navbtn{display:flex;}
     .about-grid, .contact-wrap{grid-template-columns:1fr;}
